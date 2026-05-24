@@ -11,7 +11,11 @@ import { deleteFromCloudinary } from '../middleware/upload.middleware.js';
  */
 export const createProduct = asyncHandler(async (req, res) => {
   const { title, description, price, discountedPrice, category } = req.body;
-  const imageUrl = req.file ? req.file.path : undefined; // Multer-storage-cloudinary injects URL into req.file.path
+  const imageUrl = req.file 
+    ? (req.file.path.startsWith('http') 
+        ? req.file.path 
+        : `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`)
+    : undefined;
 
   if (!title || !description || !price || !category) {
     // If validation fails before creation, clean up uploaded file from Cloudinary
@@ -130,7 +134,11 @@ export const getProductById = asyncHandler(async (req, res) => {
 export const updateProduct = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { title, description, price, discountedPrice, category } = req.body;
-  const newImageUrl = req.file ? req.file.path : undefined;
+  const newImageUrl = req.file 
+    ? (req.file.path.startsWith('http') 
+        ? req.file.path 
+        : `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`)
+    : undefined;
 
   const product = await Product.findById(id);
   if (!product) {

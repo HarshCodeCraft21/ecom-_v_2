@@ -229,10 +229,10 @@ export const AdminProducts = () => {
                     </td>
                     <td className="px-6 py-4 truncate max-w-[200px]">{prod.title}</td>
                     <td className="px-6 py-4 text-lux-dark/60">{prod.category?.name || 'Unassigned'}</td>
-                    <td className="px-6 py-4">${prod.price.toFixed(2)}</td>
+                    <td className="px-6 py-4">₹{prod.price.toFixed(2)}</td>
                     <td className="px-6 py-4">
                       {prod.discountedPrice > 0 ? (
-                        <span className="text-emerald-600 font-bold">${prod.discountedPrice.toFixed(2)}</span>
+                        <span className="text-emerald-600 font-bold">₹{prod.discountedPrice.toFixed(2)}</span>
                       ) : (
                         <span className="text-lux-dark/40">—</span>
                       )}
@@ -333,7 +333,7 @@ export const AdminProducts = () => {
           {/* Prices Grid */}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-lux-dark/60">Original Price ($)</label>
+              <label className="text-[10px] font-bold uppercase tracking-wider text-lux-dark/60">Original Price (₹)</label>
               <input
                 type="number"
                 name="price"
@@ -348,7 +348,7 @@ export const AdminProducts = () => {
             </div>
 
             <div className="space-y-1">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-lux-dark/60">Discounted Price ($)</label>
+              <label className="text-[10px] font-bold uppercase tracking-wider text-lux-dark/60">Discounted Price (₹)</label>
               <input
                 type="number"
                 name="discountedPrice"

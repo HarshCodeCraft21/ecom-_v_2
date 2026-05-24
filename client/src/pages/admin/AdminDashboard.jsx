@@ -45,8 +45,8 @@ export const AdminDashboard = () => {
   const cards = [
     { label: 'Total Products', value: stats.totalProducts, icon: Package, color: 'bg-blue-50 text-blue-600' },
     { label: 'Categories', value: stats.totalCategories, icon: Tags, color: 'bg-purple-50 text-purple-600' },
-    { label: 'Catalog Value', value: `$${stats.totalValue.toFixed(2)}`, icon: DollarSign, color: 'bg-emerald-50 text-emerald-600' },
-    { label: 'Avg. Price', value: `$${stats.avgPrice.toFixed(2)}`, icon: TrendingUp, color: 'bg-amber-50 text-amber-600' },
+    { label: 'Catalog Value', value: `₹${stats.totalValue.toFixed(2)}`, icon: DollarSign, color: 'bg-emerald-50 text-emerald-600' },
+    { label: 'Avg. Price', value: `₹${stats.avgPrice.toFixed(2)}`, icon: TrendingUp, color: 'bg-amber-50 text-amber-600' },
   ];
 
   return (
